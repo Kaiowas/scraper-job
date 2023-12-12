@@ -6,9 +6,9 @@
         @include('layouts.titlesection', ['titular' => 'Listando routes', 'showBack' => true])
 
         <div class="btn-group button-group-sm ms-auto text-end me-0 d-block">
-            <a href="{{ route('runPagesJob') }}" target="_blank" class="ajaxPost btn btn-warning btn-sm ms-auto">run Pages
+            <a href="{{ route('runPagesJob') }}" target="_blank" class="ajaxPost runJob btn btn-warning btn-sm ms-auto">run Pages
                 Job</a>
-            <a href="{{ route('runImagesJob') }}" target="_blank" class="ajaxPost btn btn-danger btn-sm">run Images Job</a>
+            <a href="{{ route('runImagesJob') }}" target="_blank" class="ajaxPost runJob btn btn-danger btn-sm">run Images Job</a>
         </div>
 
         <div class="accordion w-75 mx-auto shadow rounded mt-3" id="accordionExample">
@@ -71,6 +71,7 @@
                 e.preventDefault();
                 var urlPath = $(this).attr('href');
                 loadingDiv.fadeIn('fast');
+                var isRunJobBtn = $(this).hasClass('runJob')
 
                 var request = $.ajax({
                     url: urlPath,
@@ -81,6 +82,13 @@
 
                 request.done(function(response) {
                     console.log(response)
+                    if(isRunJobBtn){
+                        var msg = "Se proceso con éxito";
+                    } else {
+                        var counted = response.length;
+                        var msg = (counted>0?"Se encontraron "+counted+" resultados.":"No se encontraron resultados.");
+                    }
+                    alert(msg)
                 });
 
                 request.fail(function(jqXHR, textStatus) {

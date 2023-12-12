@@ -68,10 +68,10 @@ class ImageJob implements ShouldQueue
         $parsePath = public_path("storage/{$folderName}/{$fileName}");
         $parsePathTH = public_path("storage/{$folderName}/thumb_{$fileName}");
 
-        $img = ImageThumb::make($parsePath)->resize(200, 200, function ($constraint) {
+        $img = ImageThumb::make($parsePath)->resize(300, 300, function ($constraint) {
             $constraint->aspectRatio();
         });
-        $img->save($parsePathTH,60);
+        $img->save($parsePathTH,45);
 
 
         $this->Image->path_local = $fileName;

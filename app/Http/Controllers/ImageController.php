@@ -43,7 +43,7 @@ class ImageController extends Controller
             //ImageJob::dispatch($item)->onQueue('images');
             //$item->put(['page'=>$item->page]);
             //$item['page'] = $item->page;
-            ImageJob::dispatch($item)->onQueue('images');
+            ImageJob::dispatchAfterResponse($item)->onQueue('images');
             return $item;
         })->values();
 
