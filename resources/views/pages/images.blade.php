@@ -9,12 +9,12 @@
             @foreach ($page->images as $image)
                 <div class="col mx-auto">
                     <div class="card h-100 shadow-sm">
-                        <a href="/download/{{ $image->path_local }}" data-footer="false"
-                            data-image="{{ config('app.url') }}/download/{{ $image->path_local }}" data-bs-toggle="modal"
+                        <a href="/storage/download/{{ $image->path_local }}" data-footer="false"
+                            data-image="{{ config('app.url') }}storage/download/{{ $image->path_local }}" data-bs-toggle="modal"
                             data-bs-target="#myModal" title="{{ $image->path_local }}"
                             class="openModal position-absolute fs-1 pt-5 w-100 h-100 top-50 start-50 text-center translate-middle stretched-link">
                             <i class="mt-5 align-items-center fa-regular fa-image fa-2xl opacity-25"></i></a>
-                        <img src="#" data-src="/download/{{ $image->path_local_thumbnail }}" class="card-img-top fade" alt="...">
+                        <img src="#" data-src="/storage/download/{{ $image->path_local_thumbnail }}" class="card-img-top fade" alt="...">
 
                         <div class="card-footer justify-content-between d-flex small align-items-center">
                             <small class="text-body-secondary lh-sm">
