@@ -15,7 +15,7 @@
                             class="openModal position-absolute fs-1 pt-3 w-100 h-100 top-50 start-50 text-center translate-middle stretched-link">
                             <i class="mt-5 align-items-center fa-regular fa-image fa-sm opacity-50"></i></a>
                         <img src="#" data-pageid="{{ $image->page_id }}"
-                            data-src="/storage/download/{{ $image->path_local_thumbnail }}" class="card-img fade h-25 w-50 mx-auto"
+                            data-src="/storage/download/{{ $image->path_local_thumbnail }}" class="card-img-top fade h-251 w-501 mx-auto"
                             alt="...">
 
                         <div class="card-footer justify-content-between d-flex small align-items-center">
