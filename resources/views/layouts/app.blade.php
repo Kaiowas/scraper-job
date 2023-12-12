@@ -63,7 +63,7 @@
                             </li>
                             <li class="nav-item">
                                 <a target="_blank" class="nav-link @if (Route::currentRouteName() == 'log-viewer.index') bg-secondary rounded bg-opacity-25 text-dark @endif"
-                                    href="{{ route('log-viewer.index') }}"><i class="fa-regular fa-file-lines fa-sm me-2"></i>Shorts</a>
+                                    href="{{ route('log-viewer.index') }}"><i class="fa-regular fa-file-lines fa-sm me-2"></i>Logs</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link @if (Route::currentRouteName() == 'settings.show') bg-secondary rounded bg-opacity-25 text-dark @endif"
