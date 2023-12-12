@@ -31,8 +31,8 @@ Route::middleware('auth')->group(function(){
         Route::get('/home','index')->name('home');
         Route::get('/routes','routes')->name('routes');
         Route::prefix('runjob')->group(function(){
-            Route::get('/pages','runPagesJob')->name('runPagesJob');
-            Route::get('/images','runImagesJob')->name('runImagesJob');
+            Route::match(['get', 'post'],'/pages','runPagesJob')->name('runPagesJob');
+            Route::match(['get', 'post'],'/images','runImagesJob')->name('runImagesJob');
         });
     });
 
@@ -44,11 +44,11 @@ Route::middleware('auth')->group(function(){
     Route::controller(PageController::class)->name('page.')->prefix('page')->group(function(){
         Route::get('/index/{limit?}','index')->name('index');
         Route::get('/show/{page?}','show')->name('show');
-        Route::get('/findPending','findPending')->name('findPending');
+        Route::match(['get', 'post'],'/findPending','findPending')->name('findPending');
     });
 
     Route::controller(ImageController::class)->name('image.')->prefix('image')->group(function(){
-        Route::get('/ShowPending','ShowPending')->name('ShowPending');
+        Route::match(['get', 'post'],'/ShowPending','ShowPending')->name('ShowPending');
         Route::get('/showAllImages','showAllImages')->name('showAllImages');
     });
 

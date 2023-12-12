@@ -25,7 +25,7 @@ class PageJob implements ShouldQueue
      *
      * @var int
      */
-    public $tries = 3;
+    public $tries = 5;
 
     /**
      * The maximum number of unhandled exceptions to allow before failing.

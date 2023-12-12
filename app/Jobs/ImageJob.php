@@ -30,7 +30,7 @@ class ImageJob implements ShouldQueue
      *
      * @var int
      */
-    public $tries = 25;
+    public $tries = 5;
 
     /**
      * The maximum number of unhandled exceptions to allow before failing.
@@ -71,7 +71,7 @@ class ImageJob implements ShouldQueue
         $img = ImageThumb::make($parsePath)->resize(200, 200, function ($constraint) {
             $constraint->aspectRatio();
         });
-        $img->save($parsePathTH);
+        $img->save($parsePathTH,60);
 
 
         $this->Image->path_local = $fileName;

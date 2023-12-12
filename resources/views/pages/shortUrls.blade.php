@@ -85,7 +85,7 @@
                 <th scope="row">{{$item->id}}</th>
                 <td>{{$item->destination_url}}</td>
                 <td>{{$item->url_key}}</td>
-                <td>{{$item->default_short_url}}</td>
+                <td><a href="{{$item->default_short_url}}" target="_blank" class="btn-link">{{$item->default_short_url}}</a></td>
                 <td>@if($item->visits->count()>0) <button  class="btn btn-warning btn-sm" data-bs-trigger="hover focus" data-bs-customClass="w-100" data-bs-html="true" data-bs-template='<div class="popover" role="tooltip"><div class="popover-arrow"></div><div class="popover-inner">{{$visitsTable}}</div></div>' data-bs-content="Top popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left"><i class="fa-solid fa-chart-line"></i></button> @endif</td>
                 <td>{{$item->created_at->format('d/m/Y')}}</td>
               </tr>

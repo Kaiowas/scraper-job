@@ -13,6 +13,6 @@ class ConfigSeeder extends Seeder
      */
     public function run(): void
     {
-        Setting::create(['url_default'=>'https://luleamindful.com/categoria-producto/mujer/','limit'=>200,'save'=>1]);
+        Setting::create(['url_default'=>'https://luleamindful.com/categoria-producto/mujer/','limit'=>20,'save'=>1]);
     }
 }

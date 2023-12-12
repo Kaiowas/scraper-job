@@ -29,12 +29,12 @@ class HomeController extends Controller
     }
     public function runPagesJob(){
         $exitCode = Artisan::call('queue:work --queue=pages --stop-when-empty');
-        return $exitCode;
+        return response()->json($exitCode);
     }
 
     public function runImagesJob(){
         $exitCode = Artisan::call('queue:work --queue=images --stop-when-empty');
-        return $exitCode;
+        return response()->json($exitCode);
     }
 
     public function routes(){

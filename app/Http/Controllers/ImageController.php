@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Jobs\ImageJob;
+use Illuminate\Support\Facades\Cache;
+
 
 class ImageController extends Controller
 {
@@ -16,7 +18,18 @@ class ImageController extends Controller
         //
     }
     public function showAllImages(){
-        $images = Image::with('page')->orderBy('page_id','asc')->paginate(200);
+
+        $page = (request()->has('page')?request()->get('page'):1);
+        $keyCache = "images_page_{$page}";
+
+        $images = Cache::get($keyCache, function () use($keyCache){
+            $images = Image::with('page')->orderBy('page_id','asc')->paginate(24);
+            Cache::put($keyCache, $images, now()->addMinutes(10));
+            return $images;
+        });
+
+
+        //$images = Image::with('page')->orderBy('page_id','asc')->paginate(200);
         //$grouped = collect($images)->groupBy('page.pageName');
 
 
