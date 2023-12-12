@@ -10,7 +10,7 @@
                 <div class="col mx-auto">
                     <div class="card h-1001 shadow-sm">
                         <a href="/storage/download/{{ $image->path_local }}" data-footer="false"
-                            data-image="{{ config('app.url') }}storage/download/{{ $image->path_local }}" data-bs-toggle="modal"
+                            data-image="{{ config('app.asset_url') }}storage/download/{{ $image->path_local }}" data-bs-toggle="modal"
                             data-bs-target="#myModal" title="{{ $image->path_local }}"
                             class="openModal position-absolute fs-1 pt-3 w-100 h-100 top-50 start-50 text-center translate-middle stretched-link">
                             <i class="mt-5 align-items-center fa-regular fa-image fa-sm opacity-50"></i></a>
